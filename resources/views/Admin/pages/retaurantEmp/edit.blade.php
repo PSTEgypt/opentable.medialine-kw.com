@@ -1,0 +1,222 @@
+    
+    @extends('Admin.index')
+@section('content')
+
+
+   <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">
+                
+  ادارة المشرفين  
+
+                        </h3>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item">pages</li>
+                            <li class="breadcrumb-item active">Table basic</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card">
+@component('components.error',['errors'=>$errors ?? NULL]) @endcomponent
+                          
+                            <div class="card-body">
+
+                                <h2 class="card-title"> 
+اضافة وجبة
+ </h2>
+ <form role="form" action="{{route('emp.edit.submit',$admin->id)}}" method="post" id="formAdmin" >
+          @csrf
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="InputNameAr">{{trans('dashboard.adminpermissions')}} </label>
+                    <input type="text" class="form-control" id="InputNameAr"  name="name" value="{{$admin->name}}">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="InputNameEn">{{trans('dashboard.TableEmail')}} </label>
+                    <input type="text" class="form-control" id="InputNameEn"  name="email" value="{{$admin->email}}">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Inputpassword">{{trans('dashboard.TablePassword')}} </label>
+                    <input type="text" class="form-control" id="Inputpassword"  name="password" >
+                  </div>
+
+                  <div class="form-group">
+                  <div class="form-check">
+                  @if($admin->is_super  == 1)
+                    <input type="checkbox" class="form-check-input" id="admin" value=1   name="admin" checked>
+                    @else
+                    <input type="checkbox" class="form-check-input" id="admin" value=1   name="admin" >
+                    @endif
+                    <label class="form-check-label" for="exampleCheck1">{{trans('dashboard.TextAdmin')}}</label>
+                  </div>
+                  </div> 
+                  </div>                
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">{{trans('dashboard.TextSend')}}</button>
+                </div>
+             
+
+   
+
+          </form>
+
+
+             
+                  
+                  
+
+                                
+                </div>
+
+              
+
+  
+     
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme working">7</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2017 Admin Pro by wrappixel.com </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+
+   
+ 
+
+ @section('javascript')
+<!-- DataTables -->
+<script src="{{asset('plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+
+    $('#example2').DataTable({
+        "language": {
+            "paginate": {
+                "next": "{{trans('dashboard.TableNext')}}",
+                 "previous" : "{{trans('dashboard.TableBefore')}}"
+            }
+        },
+      "info" : true,
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": false,
+      "autoWidth": false
+    });
+  });
+</script>
+<script>
+$('input[type="checkbox"][name="admin"]').change(function() {
+     if(this.checked) {
+      $("input[type=checkbox]").not('#admin').prop('checked', $(this).prop('checked')).attr("disabled", true);
+     }else{
+      $("input[type=checkbox]").not('#admin').prop('checked', false).attr("disabled", false);
+     }
+ });
+
+</script>
+ @endsection
+ 
+@endsection
+
+
